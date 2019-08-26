@@ -1,0 +1,49 @@
+var wins, guessesRemaining, chosenWord, guess, indexOfGuess
+var lettersGuessed=[], blankedWord = []
+var words=["tiger", "lion", "panther", "leopard", "cougar", "cheetah", "cat", "jaguar", "lynx", "ocelot", "serval"]
+
+//Assign HTML element vars
+var chosenWordElem = document.getElementById("chosenWord")
+var lettersGuessedElem = document.getElementById("lettersGuessed")
+var blankedWordElem = document.getElementById("blankedWord")
+var guessesLeftElem = document.getElementById("guessesLeft")
+
+
+var chosenWordIndex = Math.floor(Math.random() * words.length)
+chosenWord = words[chosenWordIndex]
+console.log(chosenWord)
+chosenWordElem.innerText = chosenWord
+
+for (let i = 0; i < chosenWord.length; i++) {
+    blankedWord.push("_")
+    //blankedWordElem.innerHTML += "<div id='letter" + i + ">" + blankedWord[i] + "</div>"
+}
+console.log(blankedWord)
+
+
+guessesRemaining = 10
+
+document.onkeyup = function (event) {
+    guess = event.key
+    lettersGuessed.push(guess)
+
+    guessesRemaining--
+    
+    if (chosenWord.includes(guess)) {
+        indexOfGuess = chosenWord.indexOf(guess)
+        blankedWord[indexOfGuess] = guess
+    } else {
+        lettersGuessed.push(guess)
+    }
+
+    if (blankedWord.toString() === chosenWord) {
+        alert("Job Well Done!")
+    }
+    console.log("Blanked Word: " + blankedWord.toString())
+
+    lettersGuessedElem.innerText = lettersGuessed
+    blankedWordElem.innerText = blankedWord.join(" ")
+    guessesLeftElem.innerText = guessesRemaining
+
+
+}
