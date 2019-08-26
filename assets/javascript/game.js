@@ -1,5 +1,5 @@
-var wins, guessesRemaining, chosenWord, guess, indexOfGuess
-var lettersGuessed = [], blankedWord = []
+var wins, guessesRemaining, chosenWord, guess
+var lettersGuessed = [], blankedWord = [], indexOfGuess =[]
 var words = ["tiger", "lion", "panther", "leopard", "cougar", "cheetah", "cat", "jaguar", "lynx", "ocelot", "serval"]
 
 //Assign HTML element vars
@@ -28,8 +28,18 @@ document.onkeyup = function (event) {
     guessesRemaining--
 
     if (chosenWord.includes(guess)) {
-        indexOfGuess = chosenWord.indexOf(guess)
-        blankedWord[indexOfGuess] = guess
+        //indexOfGuess = chosenWord.indexOf(guess)
+        for (let i = 0; i < chosenWord.length; i++) {
+            if (chosenWord[i] === guess) {
+                indexOfGuess.push(i)
+            }
+        }
+
+        console.log("Indices: " + indexOfGuess)
+
+        indexOfGuess.forEach(element => {
+            blankedWord[element] = guess            
+        });
     } else {
         lettersGuessed.push(guess)
     }
@@ -43,6 +53,6 @@ document.onkeyup = function (event) {
     lettersGuessedElem.innerText = lettersGuessed
     blankedWordElem.innerText = blankedWord.join(" ")
     guessesLeftElem.innerText = guessesRemaining
-
+    indexOfGuess = []
 
 }
