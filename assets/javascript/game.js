@@ -1,35 +1,41 @@
-var wins, guessesRemaining, chosenWord, guess, indexOfGuess
-var lettersGuessed = [], blankedWord = []
-var words = ["tiger", "lion", "panther", "leopard", "cougar", "cheetah", "cat", "jaguar", "lynx", "ocelot", "serval"]
+game.chosenWord = game.words[game.chosenWordIndex]
+console.log(game.chosenWord)
+game.chosenWordElem.innerText = game.chosenWord
 
-//Assign HTML element vars
-var chosenWordElem = document.getElementById("chosenWord")
-var lettersGuessedElem = document.getElementById("lettersGuessed")
-var blankedWordElem = document.getElementById("blankedWord")
-var guessesLeftElem = document.getElementById("guessesLeft")
-
-
-var chosenWordIndex = Math.floor(Math.random() * words.length)
-chosenWord = words[chosenWordIndex]
-console.log(chosenWord)
-chosenWordElem.innerText = chosenWord
-
-for (let i = 0; i < chosenWord.length; i++) {
-    blankedWord.push("_")
+for (let i = 0; i < game.chosenWord.length; i++) {
+    game.blankedWord.push("_")
     //blankedWordElem.innerHTML += "<div id='letter" + i + ">" + blankedWord[i] + "</div>"
 }
 
-guessesRemaining = 10
+game.guessesRemaining = 10
 
+function checkIfLetterPressed() {
+
+}
+
+function runGame() {
+
+}
 document.onkeyup = function (event) {
-    guess = event.key
-    lettersGuessed.push(guess)
+    game.guess = event.key
+    game.lettersGuessed.push(game.guess)
 
-    guessesRemaining--
+    if (game.chosenWord.includes)
+    game.guessesRemaining--
 
     if (chosenWord.includes(guess)) {
-        indexOfGuess = chosenWord.indexOf(guess)
-        blankedWord[indexOfGuess] = guess
+        //indexOfGuess = chosenWord.indexOf(guess)
+        for (let i = 0; i < chosenWord.length; i++) {
+            if (chosenWord[i] === guess) {
+                indexOfGuess.push(i)
+            }
+        }
+
+        console.log("Indices: " + indexOfGuess)
+
+        indexOfGuess.forEach(element => {
+            blankedWord[element] = guess            
+        });
     } else {
         lettersGuessed.push(guess)
     }
@@ -43,6 +49,6 @@ document.onkeyup = function (event) {
     lettersGuessedElem.innerText = lettersGuessed
     blankedWordElem.innerText = blankedWord.join(" ")
     guessesLeftElem.innerText = guessesRemaining
-
+    indexOfGuess = []
 
 }
