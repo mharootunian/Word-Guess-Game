@@ -1,27 +1,31 @@
-game.chosenWord = game.words[game.chosenWordIndex]
-console.log(game.chosenWord)
-game.chosenWordElem.innerText = game.chosenWord
+var wins, guessesRemaining, chosenWord, guess
+var lettersGuessed = [], blankedWord = [], indexOfGuess =[]
+var words = ["tiger", "lion", "panther", "leopard", "cougar", "cheetah", "cat", "jaguar", "lynx", "ocelot", "serval"]
 
-for (let i = 0; i < game.chosenWord.length; i++) {
-    game.blankedWord.push("_")
+//Assign HTML element vars
+var chosenWordElem = document.getElementById("chosenWord")
+var lettersGuessedElem = document.getElementById("lettersGuessed")
+var blankedWordElem = document.getElementById("blankedWord")
+var guessesLeftElem = document.getElementById("guessesLeft")
+
+
+var chosenWordIndex = Math.floor(Math.random() * words.length)
+chosenWord = words[chosenWordIndex]
+console.log(chosenWord)
+chosenWordElem.innerText = chosenWord
+
+for (let i = 0; i < chosenWord.length; i++) {
+    blankedWord.push("_")
     //blankedWordElem.innerHTML += "<div id='letter" + i + ">" + blankedWord[i] + "</div>"
 }
 
-game.guessesRemaining = 10
+guessesRemaining = 10
 
-function checkIfLetterPressed() {
-
-}
-
-function runGame() {
-
-}
 document.onkeyup = function (event) {
-    game.guess = event.key
-    game.lettersGuessed.push(game.guess)
+    guess = event.key
+    lettersGuessed.push(guess)
 
-    if (game.chosenWord.includes)
-    game.guessesRemaining--
+    guessesRemaining--
 
     if (chosenWord.includes(guess)) {
         //indexOfGuess = chosenWord.indexOf(guess)
