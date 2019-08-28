@@ -10,19 +10,25 @@
 
 <body>
 
-    Chosen Word: <span id="chosenWord"></span>
-    <br>
-    Letters Guessed: <span id="lettersGuessed"></span>
-    <br>
-    Blanked Word: <span id="blankedWord"></span>
-    <br>
-    Guesses Left: <span id="guessesLeft"></span>
-    <br>
+    <span id="welcomeMessage">Welcome! Press anykey to begin!</span>
 
+    <div id="menu">
+        Chosen Word: <span id="chosenWord"></span>
+        <br>
+        Letters Guessed: <span id="lettersGuessed"></span>
+        <br>
+        Blanked Word: <span id="blankedWord"></span>
+        <br>
+        Guesses Left: <span id="guessesLeft"></span>
+        <br>
+    </div>
     <script src="./assets/javascript/hangem.js"></script>
 
     <script src="./assets/javascript/game.js"></script>
 
+    <br>
+    <br>
+    <input type="button" value="Restart Game" onclick="restartGame()">
 </body>
 
 </html>
