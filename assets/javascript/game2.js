@@ -26,7 +26,7 @@ for (let i = 0; i < chosenWord.length; i++) {
 menuElem.hidden = true;
 ingGameTitleElem.hidden = true;
 
-guessesRemaining = 10
+guessesRemaining = Math.ceil(chosenWord.length * 2.5);
 
 
 lettersGuessedElem.innerText = lettersGuessed
