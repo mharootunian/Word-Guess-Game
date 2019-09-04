@@ -78,8 +78,9 @@ function gameLoop() {
                 console.log("Blanked Word: " + blankedWord.toString().replace(/,/g, ""))
                 if (blankedWord.toString().replace(/,/g, "") === chosenWord) {
                     alert("Job Well Done!")
+                    showImage(chosenWord);
                     resetButtonElem.className = "btn btn-success";
-                    resetButtonElem.value = "New Game"
+                    resetButtonElem.value = "New Game";
                 }
 
 
