@@ -6,29 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <span id="welcomeMessage">Welcome! Press anykey to begin!</span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
+            <div class="col-lg-4">
+                <span id="welcomeMessage">
+                    <h1>Welcome! Press anykey to begin!</h1>
+                </span>
+            </div>
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
 
-    <div id="menu">
-        Chosen Word: <span id="chosenWord"></span>
+        </div>
+
+        <div class="row" id="in-game-title">
+                <div class="col-lg-4">
+                <!-- leave blank for spacing-->                    
+                </div>
+                <div class="col-lg-4">
+                    <h1>Guess the Word Feline Edition!</h1>
+                </div>
+                <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+                   
+                </div>
+            </div>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
+            <div class="col-lg-4">
+                <img class="img-fluid" src="./assets/images/kitty.jpg">
+            </div>
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="menu">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Letters Guessed: <span id="lettersGuessed"></span>
+                        </div>
+                        <div class="col-lg-4">
+                            Blanked Word: <span id="blankedWord"></span>
+                        </div>
+                        <div class="col-lg-4">
+                            Guesses Left: <span id="guessesLeft"></span>
+                        </div>
+                        <br>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
         <br>
-        Letters Guessed: <span id="lettersGuessed"></span>
         <br>
-        Blanked Word: <span id="blankedWord"></span>
         <br>
-        Guesses Left: <span id="guessesLeft"></span>
-        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
+            <div class="col-lg-4">
+                <input type="button" id="restart-game-button" value="Restart Game" class="btn btn-danger" onclick="restartGame()">
+
+            </div>
+            <div class="col-lg-4">
+                <!-- leave blank for spacing-->
+            </div>
+        </div>
     </div>
+
+
+
+
     <script src="./assets/javascript/hangem.js"></script>
-
-    <script src="./assets/javascript/game.js"></script>
-
-    <br>
-    <br>
-    <input type="button" value="Restart Game" onclick="restartGame()">
+    <script src="./assets/javascript/game2.js"></script>
 </body>
 
 </html>
