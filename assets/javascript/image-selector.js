@@ -33,10 +33,8 @@ function showImage(chosenWord) {
         case "serval":
             document.getElementById("image").src = "./assets/images/serval.jpg";
             break;
+
         default:
             break;
     }
 }
-
-
-"jaguar", "lynx", "ocelot", "serval"]
