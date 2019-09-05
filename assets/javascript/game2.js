@@ -26,7 +26,7 @@ for (let i = 0; i < chosenWord.length; i++) {
 menuElem.hidden = true;
 ingGameTitleElem.hidden = true;
 
-guessesRemaining = Math.ceil(chosenWord.length * 2.5);
+guessesRemaining = Math.ceil(chosenWord.length * 2);
 
 
 lettersGuessedElem.innerText = lettersGuessed
@@ -54,8 +54,9 @@ function gameLoop() {
 
 
 
-                lettersGuessed.push(guess)
-
+                //////////////////////////////////
+                ////// /////
+                console.log("letters guessed: " + lettersGuessed)
                 guessesRemaining--
 
                 if (chosenWord.includes(guess)) {
@@ -65,6 +66,7 @@ function gameLoop() {
                             indexOfGuess.push(i)
                         }
                     }
+                    lettersGuessed.push(guess)
 
                     console.log("Indices: " + indexOfGuess)
 
@@ -73,6 +75,7 @@ function gameLoop() {
                     });
                 } else {
                     lettersGuessed.push(guess)
+                    console.log("di letter guessed: " + lettersGuessed)
                 }
 
                 console.log("Blanked Word: " + blankedWord.toString().replace(/,/g, ""))
