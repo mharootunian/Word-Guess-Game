@@ -1,4 +1,4 @@
-var wins, guessesRemaining, chosenWord, guess
+var wins, guessesRemaining, chosenWord, guess, wins
 var lettersGuessed = [], blankedWord = [], indexOfGuess = []
 var words = ["tiger", "lion", "panther", "leopard", "cougar", "cheetah", "cat", "jaguar", "lynx", "ocelot", "serval"]
 var alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -45,57 +45,67 @@ function restartGame() {
     location.reload()
 }
 
+function resetVariables() {
+    
+}
+
 function gameLoop() {
+    guessesRemaining, chosenWord, guess, wins
+var lettersGuessed = [], blankedWord = [], indexOfGuess = []
 
     document.onkeyup = function (event) {
-        guess = event.key
-        if (!lettersGuessed.includes(guess)) {
-            if (alphabet.includes(guess)) {
-
-
-
-                //////////////////////////////////
-                ////// /////
-                console.log("letters guessed: " + lettersGuessed)
-                guessesRemaining--
-
-                if (chosenWord.includes(guess)) {
-                    //indexOfGuess = chosenWord.indexOf(guess)
-                    for (let i = 0; i < chosenWord.length; i++) {
-                        if (chosenWord[i] === guess) {
-                            indexOfGuess.push(i)
-                        }
-                    }
-                    lettersGuessed.push(guess)
-
-                    console.log("Indices: " + indexOfGuess)
-
-                    indexOfGuess.forEach(element => {
-                        blankedWord[element] = guess
-                    });
-                } else {
-                    lettersGuessed.push(guess)
-                    console.log("di letter guessed: " + lettersGuessed)
-                }
-
-                console.log("Blanked Word: " + blankedWord.toString().replace(/,/g, ""))
-                if (blankedWord.toString().replace(/,/g, "") === chosenWord) {
-                    alert("Job Well Done!")
-                    showImage(chosenWord);
-                    resetButtonElem.className = "btn btn-success";
-                    resetButtonElem.value = "New Game";
-                }
-
-
-                lettersGuessedElem.innerText = lettersGuessed
-                blankedWordElem.innerText = blankedWord.join(" ")
-                guessesLeftElem.innerText = guessesRemaining
-                indexOfGuess = []
-            } else {
-                alert("You didn't press a letter, try again.")
-            }
+        if (guessesRemaining <= 0) {
+            alert("Out of guesses!");
         } else {
-            alert("You have already guessed that letter. Try again!");
+            guess = event.key
+            if (!lettersGuessed.includes(guess)) {
+                if (alphabet.includes(guess)) {
+
+
+
+                    //////////////////////////////////
+                    ////// /////
+                    console.log("letters guessed: " + lettersGuessed)
+                    guessesRemaining--
+
+                    if (chosenWord.includes(guess)) {
+                        //indexOfGuess = chosenWord.indexOf(guess)
+                        for (let i = 0; i < chosenWord.length; i++) {
+                            if (chosenWord[i] === guess) {
+                                indexOfGuess.push(i)
+                            }
+                        }
+                        lettersGuessed.push(guess)
+
+                        console.log("Indices: " + indexOfGuess)
+
+                        indexOfGuess.forEach(element => {
+                            blankedWord[element] = guess
+                        });
+                    } else {
+                        lettersGuessed.push(guess)
+                        console.log("di letter guessed: " + lettersGuessed)
+                    }
+
+                    console.log("Blanked Word: " + blankedWord.toString().replace(/,/g, ""))
+                    if (blankedWord.toString().replace(/,/g, "") === chosenWord) {
+                        alert("Job Well Done!")
+                        showImage(chosenWord);
+                        resetButtonElem.className = "btn btn-success";
+                        resetButtonElem.value = "New Game";
+                    }
+
+
+                    lettersGuessedElem.innerText = lettersGuessed
+                    blankedWordElem.innerText = blankedWord.join(" ")
+                    guessesLeftElem.innerText = guessesRemaining
+                    indexOfGuess = []
+                } else {
+                    alert("You didn't press a letter, try again.")
+                }
+            } else {
+                alert("You have already guessed that letter. Try again!");
+            }
         }
     }
 }
